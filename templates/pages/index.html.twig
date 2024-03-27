@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le monde, c'est quinze petits points - Accueil
+{% endblock %}
+
+{% block body %}
+
+<!------------------------------ Index navbar ------------------------------>
+
+<div class="header-navbar">
+  <ul class="header-navbar-list">
+    <li class="header-navbar-item"><a href="#project">Le projet</a></li>
+    <li class="header-navbar-item"><a href="#diary">Carnet de bord</a></li>
+    <li class="header-navbar-item"><a href="#who">Qui suis-je ?</a></li>
+  </ul>
+</div>
+
+<!------------------------------ PROJECT ------------------------------>
+
+<div class="project" id="project">
+  <h2 class="index-titles">Le projet</h2>
+  <p class="project-text">Pour Léo, comme pour beaucoup de gens, le monde, c'est cinq lettres. M, O, N, D et E. Mais avez-vous déjà réfléchi à comment serait votre vie si, pour vous, le monde, c’était quinze petits points&nbsp? Chloé, elle, le sait.</p>
+  <p class="project-text">C’est de cette idée que tout est parti. Une petite nouvelle, écrite par une collégienne qui s’interrogeait. Comment les personnes aveugles perçoivent-elles le monde qui les entoure&nbsp? L’interrogation s’est transformée en histoire, comme souvent dans la tête de cette jeune fille&nbsp;; elle avait la fâcheuse manie de vouloir écrire sur ce qu’elle ne connaissait pas. La petite histoire publiée sur la plate-forme d’écriture Wattpad a fait son bout de chemin, interrogeant à son tour les esprits. Puis un sursaut inattendu s’est produit dans la vie de cette nouvelle&nbsp: elle était lauréate des Wattys (Watty Awards) 2018 dans la catégorie «&nbspThe Change Makers&nbsp», les Acteurs du Changement. Un badge sur la couverture comme une médaille, un titre comme une promesse… Une promesse qui est restée dans un placard pendant plusieurs années. Mais une promesse ne s’oublie pas et, aujourd’hui, il est temps d’agir pour le changement.</p>
+  <p class="project-text">Je vous invite à me suivre dans le périple de l’auto-édition de ma nouvelle «&nbspLe monde, c’est quinze petits points&nbsp». Bienvenue&nbsp!</p>
+</div>
+
+<!------------------------------ DIARY ------------------------------>
+
+<div class="diary" id="diary">
+  <h2 class="index-titles">Carnet de bord</h2>
+
+<!------------------------------ Diary gauge ------------------------------>
+
+  <div class="diary-gauge">
+    <img class="diary-gauge-image" src="{{ asset('images/gauge_desktop.svg') }}" alt="Jauge de progression du projet. Étape actuelle : réécriture.">
+    <p class="diary-gauge-steps diary-gauge-step-1">Écriture</p>
+    <p class="diary-gauge-steps diary-gauge-step-2">Réécriture</p>
+    <p class="diary-gauge-steps diary-gauge-step-3">Bêtalecture</p>
+    <p class="diary-gauge-steps diary-gauge-step-4">Correction</p>
+  </div>
+
+<!------------------------------ Selected article ------------------------------>
+
+  {% set ellipsis = '...' %}
+  {% for article in articles %}
+    {% set datePublication = article.datePublication|date_modify('now') %}
+    <div class="diary-screen{% if loop.index <= 1 %} diary-screen-visible{% endif %}" data-article-id="{{ article.id }}">
+      <img class="diary-screen-category-image" src="{{ asset('images/category.svg') }}" alt="Catégorie">
+      <p class="diary-screen-category">{{ article.categoryId.getName() }}</p>
+      <div class="diary-screen-frame">
+        <h3 class="diary-screen-title">{{ article.title|raw }}</h3>
+        <div class="diary-screen-text" data-reduced-text="{{ article.text|reduceText(2000, ellipsis)|raw }}">
+          {% if article.text|length > 2000 %}
+            <p>{{ article.text|reduceText(2000, ellipsis)|raw }} <span class="diary-read-more" data-text="{{ article.text|raw }}">Afficher&nbsp;plus</span></p>
+          {% else %}
+            <p>{{ article.text|raw }}</p>
+          {% endif %}
+        </div>
+        <p class="diary-screen-date">{{ article.datePublication|frenchDate }}</p>
+        <div class="diary-screen-pictures">
+          {% if article.firstImageId is not null %}
+            <img class="diary-screen-picture-1" src="{{ article.firstImageId.getUrl() }}" alt="{{ article.firstImageId.getDescription() }}">
+          {% endif %}
+          {% if article.secondImageId is not null %}
+            <img class="diary-screen-picture-2" src="{{ article.secondImageId.getUrl() }}" alt="{{ article.secondImageId.getDescription() }}">
+          {% endif %}
+          {% if article.thirdImageId is not null %}
+            <img class="diary-screen-picture-3" src="{{ article.thirdImageId.getUrl() }}" alt="{{ article.thirdImageId.getDescription() }}">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+<!------------------------------------- NEWS ------------------------------------->
+
+  <div class="diary-list">
+    {% set maxLength = 50 %}
+    {% for article in articles %}
+      {% set datePublication = article.datePublication|date_modify('now') %}
+      <div class="diary-mini{% if loop.index <= 4 %} diary-mini-visible{% endif %}">
+        <img class="diary-mini-category-image" src="{{ asset('images/category.svg') }}" alt="Catégorie">
+        <p class="diary-mini-category">{{ article.categoryId.getName() }}</p>
+        <div class="diary-mini-frame">
+          <div class="diary-mini-frame-top">
+            {% if article.title|length > maxLength %}
+              <h3 class="diary-mini-title">{{ article.title|truncateText(maxLength, ellipsis)|raw }}</h3>
+            {% else %}
+              <h3 class="diary-mini-title">{{ article.title|raw }}</h3>
+            {% endif %}
+            {% if article.text|length > maxLength %}
+              <p class="diary-mini-text">{{ article.text|truncateText(maxLength, ellipsis)|raw }}</p>
+            {% else %}
+              <p class="diary-mini-text">{{ article.text|raw }}</p>
+            {% endif %}
+          </div>
+          <div class="diary-mini-frame-bottom">
+            <time datetime="{{ article.datePublication|date('Y-m-d') }}" pubdate>
+              <span class="diary-mini-date">{{ article.datePublication|date('d/m/Y') }}</span>
+            </time>
+            <button class="diary-mini-button" data-article-id="{{ article.id }}">Consulter l'article</button>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+<!------------------------------ Show more articles ------------------------------>
+
+  {% if articles|length >= 5 %}
+    <div class="diary-more-zone">
+      <button class="diary-more" data-articles-visible="4">Voir plus d'articles</button>
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}

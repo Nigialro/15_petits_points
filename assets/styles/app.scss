@@ -1,0 +1,868 @@
+@import '_variables.scss';
+@import '_typography.scss';
+
+body {
+  margin: 0px;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+//////////////////////////////////////// MOBILE VIEW ////////////////////////////////////////
+
+@media screen and (max-width: 720px) {
+  h1 {
+    font-size: 9vw;
+    margin: 3vw 0vw;
+  }
+
+  .diary {
+    &-gauge {
+      &-image{
+        width: 85vw;
+        height: 22vw;
+      }
+
+      &-step-2 {
+        left: 25vw;
+      }
+
+      &-step-3 {
+        right: 36vw;
+      }
+
+      &-steps {
+        font-size: 4vw;
+      }
+    }
+
+    &-mini {
+      width: 70vw;
+      height: 56.2vw;
+      border-radius: 1.5vw 1.5vw 1.5vw 1.5vw;
+      padding: 12vw 3vw 3vw;
+
+      &-button {
+        font-size: 4.8vw;
+        border-radius: 1.5vw 1.5vw 1.5vw 1.5vw;
+        padding: 1.5vw;
+        margin-top: 3vw;
+
+        &-read {
+          font-size: 4.8vw;
+          border-radius: 1.5vw 1.5vw 1.5vw 1.5vw;
+          padding: 1.5vw;
+          margin-top: 3vw;
+        }
+      }
+
+      &-category {
+        top: -2vw;
+        right: 4vw;
+        font-size: 4.5vw;
+
+        &-image {
+          top: 2.2vw;
+          width: 40vw;
+        }
+      }
+
+      &-date {
+        font-size: 4.5vw;
+      }
+
+      &-frame {
+        padding: 3vw;
+        border-radius: 1.5vw 1.5vw 1.5vw 1.5vw;
+        height: 49vw;
+      }
+
+      &-text {
+        font-size: 4vw;
+      }
+
+      &-title {
+        font-size: 4.8vw;
+      }
+    }
+
+    &-more {
+      font-size: 5vw;
+      margin: 3vw 0vw 3vw;
+    }
+
+    &-screen {
+      margin: 6vw 3vw;
+      padding: 12vw 3vw 6vw;
+      border-radius: 1.5vw 1.5vw 1.5vw 1.5vw;
+
+      &-category {
+        top: -2vw;
+        right: 4vw;
+        font-size: 4.5vw;
+
+        &-image {
+          top: 2.2vw;
+          width: 40vw;
+        }
+      }
+
+      &-date {
+        font-size: 4.8vw;
+        margin: 0vw 0vw 7vw;
+      }
+
+      &-frame {
+        border-radius: 1.5vw 1.5vw 1.5vw 1.5vw;
+        padding: 3vw;
+      }
+
+      &-picture {
+        &-1 {
+          width: 80vw;
+          height: 45vw;
+          border-radius: 1.5vw;
+          margin: 3vw;
+        }
+  
+        &-2 {
+          width: 80vw;
+          height: 45vw;
+          border-radius: 1.5vw;
+          margin: 3vw;
+        }
+  
+        &-3 {
+          width: 80vw;
+          height: 45vw;
+          border-radius: 1.5vw;
+          margin: 3vw;
+        }
+      }
+
+      &-pictures {
+        flex-direction: column;
+        align-items: center;
+        margin: 7vw 0vw 1.5vw;
+      }
+
+      &-text {
+        font-size: 4.8vw;
+      }
+
+      &-title {
+        font-size: 5vw;  
+      }
+    }
+  }
+
+  .footer {
+    &-bottom {
+      padding: 2vw 4vw;
+      border-width: 0.75vw 1.5vw 1.5vw 0.75vw;
+      border-radius: 1.5vw 1.5vw 0vw 0vw;
+    }
+
+    &-logo {
+      height: 12vw;
+    }
+
+    &-titles {
+      font-size: 5.5vw;
+    }
+
+    &-who {
+      padding: 2vw 4vw;
+      border-width: 0.75vw 1.5vw 1.5vw 0.75vw;
+      border-radius: 1.5vw 1.5vw 0vw 0vw;
+
+      &-email {
+        font-size: 4.3vw;
+        padding: 0vw 4.5vw 1.5vw;
+      }
+
+      &-text {
+        font-size: 4.3vw;
+        padding: 1.5vw 4.5vw 0vw;
+      }
+    }
+
+    &-zone {
+      margin-top: 7vw;
+    }
+  }
+
+  .header {
+    &-logo {
+      width: 58.5vw;
+    }
+
+    &-navbar {
+      border-width: 0.75vw 1.5vw 1.5vw 0.75vw;
+      border-radius: 0vw 0vw 1.5vw 1.5vw;
+      padding: 3vw 0vw 2vw;
+      width: 97.9%;
+
+      &-list {
+        flex-direction: column;
+      }
+    }
+
+    &-navbar {
+      &-item {
+        margin: 2vw 10vw;
+        font-size: 5.5vw;
+      }
+    }
+
+    &-top {
+      padding: 7.5vw 7vw 3vw;
+      border-width: 0.75vw 1.5vw 1.5vw 0.75vw;
+      border-radius: 0vw 0vw 1.5vw 1.5vw;
+    }
+  }
+
+  .index {
+    &-subtitles {
+      font-size: 6vw;
+      padding: 1.5vw 6vw;
+      text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4), 0px -1px 1px rgba(255, 255, 255, 0.4);
+    }
+
+    &-titles {
+      font-size: 8vw;
+      padding: 1.5vw 5vw;
+    }
+  }
+
+  .project {
+    &-text {
+      font-size: 4.8vw;
+      padding: 0.5vw 4vw 1.5vw;
+    }
+  }
+
+  .size-up {
+    font-size: 13.1vw;
+  }
+}
+
+//////////////////////////////////////// DESKTOP VIEW ////////////////////////////////////////
+
+@media screen and (min-width: 720px) {
+  h1 {
+    font-size: 3.7vw;
+  }
+
+  .diary {
+    &-gauge {
+      &-image{
+        width: 80vw;
+      }
+
+      &-step-2 {
+        left: 31vw;
+      }
+
+      &-step-3 {
+        right: 38vw;
+      }
+
+      &-steps {
+        font-size: 2.2vw;
+      }
+    }
+
+    &-mini {
+      width: 35vw;
+      height: 26vw;
+      border-radius: 0.5vw 0.5vw 0.5vw 0.5vw;
+      padding: 6vw 3vw 3vw;
+
+      &-button {
+        font-size: 1.9vw;
+        border-radius: 0.5vw 0.5vw 0.5vw 0.5vw;
+        padding: 0.5vw;
+        margin-top: 1.5vw;
+
+        &-read {
+          font-size: 1.9vw;
+          border-radius: 0.5vw 0.5vw 0.5vw 0.5vw;
+          padding: 0.5vw;
+          margin-top: 1.5vw;
+        }
+      }
+
+      &-category {
+        top: -0.9vw;
+        right: 2vw;
+        font-size: 2.2vw;
+
+        &-image {
+          top: 1.1vw;
+          width: 20vw;
+        }
+      }
+
+      &-date {
+        font-size: 1.7vw;
+      }
+
+      &-frame {
+        padding: 1.5vw;
+        border-radius: 0.5vw 0.5vw 0.5vw 0.5vw;
+        height: 22.5vw;
+      }
+
+      &-text {
+        font-size: 1.7vw;
+      }
+
+      &-title {
+        font-size: 2vw;
+      }
+    }
+
+    &-more {
+      font-size: 2.2vw;
+      margin: 1vw 0vw 1vw;
+    }
+
+    &-screen {
+      margin: 3vw;
+      padding: 6vw;
+      border-radius: 0.5vw 0.5vw 0.5vw 0.5vw;
+
+      &-category {
+        top: -0.9vw;
+        right: 2vw;
+        font-size: 2.2vw;
+
+        &-image {
+          top: 1.1vw;
+          width: 20vw;
+        }
+      }
+
+      &-date {
+        font-size: 1.9vw;
+      }
+
+      &-frame {
+        border-radius: 0.5vw 0.5vw 0.5vw 0.5vw;
+        padding: 2vw;
+      }
+
+      &-picture {
+        &-1 {
+          width: 24vw;
+          height: 13.5vw;
+          border-radius: 0.5vw;
+        }
+  
+        &-2 {
+          width: 24vw;
+          height: 13.5vw;
+          border-radius: 0.5vw;
+        }
+  
+        &-3 {
+          width: 24vw;
+          height: 13.5vw;
+          border-radius: 0.5vw;
+        }
+      }
+
+      &-pictures {
+        flex-direction: row;
+        margin: 3vw 0vw 1.5vw;
+      }
+
+      &-text {
+        font-size: 1.7vw;
+      }
+
+      &-title {
+        font-size: 2.2vw;  
+      }
+    }
+  }
+
+  .footer {
+    &-bottom {
+      padding: 1vw 2vw;
+      border-width: 0.25vw 0.5vw 0.5vw 0.25vw;
+      border-radius: 0.5vw 0.5vw 0vw 0vw;
+    }
+
+    &-logo {
+      height: 5vw;
+    }
+
+    &-titles {
+      font-size: 2.2vw;
+    }
+
+    &-who {
+      padding: 0vw 2vw 2vw;
+      border-width: 0.25vw 0.5vw 0.5vw 0.25vw;
+      border-radius: 0.5vw 0.5vw 0vw 0vw;
+
+      &-email {
+        font-size: 1.7vw;
+        padding: 0.5vw 1.5vw 1.5vw;
+      }
+
+      &-text {
+        font-size: 1.7vw;
+        padding: 0.5vw 1.5vw 1.5vw;
+      }
+    }
+
+    &-zone {
+      margin-top: 4vw;
+    }
+  }
+
+  .header {
+    &-logo {
+      width: 22vw;
+    }
+
+    &-navbar {
+      border-width: 0.25vw 0.5vw 0.5vw 0.25vw;
+      border-radius: 0vw 0vw 0.5vw 0.5vw;
+      padding-top: 2vw;
+      width: 99.3%;
+
+      &-item {
+        margin: 0vw 7vw;
+        font-size: 2.2vw;
+      }
+    }
+
+    &-top {
+      display: flex;
+      justify-content: space-around;  
+      padding: 0vw 1.5vw;
+      border-width: 0.25vw 0.5vw 0.5vw 0.25vw;
+      border-radius: 0vw 0vw 0.5vw 0.5vw;
+    }
+  }
+
+  .index {
+    &-subtitles {
+      font-size: 2.5vw;
+      padding: 1.5vw 4vw;
+      text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+    }
+
+    &-titles {
+      font-size: 3.2vw;
+      padding: 1.5vw 3vw;
+    }
+  }
+
+  .project {
+    &-text {
+      font-size: 1.7vw;
+      padding: 0.5vw 1.5vw 1.5vw;
+    }
+  }
+}
+
+//////////////////////////////////////// GENERAL VIEW ////////////////////////////////////////
+
+h1 {
+  font-family: 'Fredoka', Helvetica, sans-serif;
+  color: $color-primary;
+  text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+  letter-spacing: 0.2vw;
+}
+
+.diary {
+  &-gauge {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    &-step-1 {
+      position: absolute;
+      bottom: -2vw;
+      left: 10vw;
+    }
+
+    &-step-2 {
+      position: absolute;
+      top: -2vw;
+    }
+
+    &-step-3 {
+      position: absolute;
+      bottom: -2vw;
+    }
+
+    &-step-4 {
+      position: absolute;
+      top: -2vw;
+      right: 20vw;
+    }
+
+    &-steps {
+      color: $color-dark;
+      font-family: 'Fredoka', Helvetica, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.15vw;
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &-mini {
+    background-color: $color-selection;
+    border-width: 0.5vw 0.25vw 0.25vw 0.5vw;
+    border-style: solid;
+    border-color: $color-dark;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.4), inset 0px -2px 1px rgba(255, 255, 255, 0.4);
+    margin: 2.4vw;
+    position: relative;
+
+    &:not(.diary-mini-visible) {
+      display: none;
+    }
+
+    &-button {
+      background-color: $color-primary;
+      border-width: 0.25vw 0.5vw 0.5vw 0.25vw;
+      border-style: solid;
+      border-color: $color-dark;
+      box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      color: $color-light;
+      font-family: 'Luciole', Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.15vw;
+      cursor: pointer;
+
+      &-read {
+        background-color: $color-secondary;
+        border-width: 0.5vw 0.25vw 0.25vw 0.5vw;
+        border-style: solid;
+        border-color: $color-dark;
+        box-shadow: 0px -2px 1px rgba(0, 0, 0, 0.4), 0px 2px 1px rgba(255, 255, 255, 0.4);
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        color: $color-dark;
+        font-family: 'Luciole', Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.15vw;
+        cursor: pointer;
+      }
+    }
+
+    &-category {
+      position: absolute;
+      color: $color-primary;
+      font-family: 'Fredoka', Helvetica, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.15vw;
+
+      &-image {
+        position: absolute;
+        right: 0vw;
+      }
+    }
+
+    &-date {
+      letter-spacing: 0.15vw;
+      color: $color-dark;
+      font-family: 'Luciole', Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      display: flex;
+      justify-content: end;
+      margin: 0.5vw 0vw;
+    }
+
+    &-frame {
+      background-color: $color-light;
+      border-width: 0.25vw 0.5vw 0.5vw 0.25vw;
+      border-style: solid;
+      border-color: $color-dark;
+      box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &-text {
+      padding: 0.5vw 1.5vw 1.5vw;
+      letter-spacing: 0.15vw;
+      color: $color-dark;
+      font-family: 'Luciole', Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      line-height: 150%;
+      margin: 0.5vw 0vw;
+    }
+
+    &-title {
+      color: $color-dark;
+      font-family: 'Fredoka', Helvetica, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.15vw;
+      line-height: 150%;
+      margin: 0vw;
+    }
+  }
+
+  &-more {
+    color: $color-primary;
+    font-family: 'Fredoka', Helvetica, sans-serif;
+    text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+    letter-spacing: 0.15vw;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &-zone {
+      display: flex;
+      justify-content: center;
+    }
+
+    &.inactive {
+      display: none;
+    }
+  }
+
+  &-read-more {
+    color: $color-selection;
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  &-screen {
+    background-color: $color-primary;
+    border-width: 0.5vw 0.25vw 0.25vw 0.5vw;
+    border-style: solid;
+    border-color: $color-dark;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.4), inset 0px -2px 1px rgba(255, 255, 255, 0.4);
+    position: relative;
+
+    &:not(.diary-screen-visible) {
+      display: none;
+    }
+
+    &-category {
+      position: absolute;
+      color: $color-primary;
+      font-family: 'Fredoka', Helvetica, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.15vw;
+
+      &-image {
+        position: absolute;
+        right: 0vw;
+      }
+    }
+
+    &-date {
+      letter-spacing: 0.15vw;
+      color: $color-dark;
+      font-family: 'Luciole', Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      display: flex;
+      justify-content: end;
+    }
+
+    &-frame {
+      background-color: $color-light;
+      border-width: 0.25vw 0.5vw 0.5vw 0.25vw;
+      border-style: solid;
+      border-color: $color-dark;
+      box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+      padding: 2vw;
+    }
+
+    &-picture {
+      &-1 {
+        box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      &-2 {
+        box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      &-3 {
+        box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+        object-fit: cover;
+        cursor: pointer;
+      }
+    }
+
+    &-pictures {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-text {
+      padding: 0.5vw 1.5vw 1.5vw;
+      letter-spacing: 0.15vw;
+      color: $color-dark;
+      font-family: 'Luciole', Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      line-height: 150%;
+    }
+
+    &-title {
+      color: $color-dark;
+      font-family: 'Fredoka', Helvetica, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.15vw;
+      line-height: 150%;
+      margin: 0vw;
+    }
+  }
+}
+
+.footer {
+  &-bottom {
+    display: flex;
+    justify-content: space-between;
+    background-color: $color-light;
+    border-style: solid;
+    border-color: $color-dark;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+  }
+
+  &-logo {
+    cursor: pointer;
+  }
+
+  &-titles {
+    color: $color-light;
+    font-family: 'Fredoka', Helvetica, sans-serif;
+    text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+    letter-spacing: 0.15vw;
+  }
+
+  &-who {
+    background-color: $color-primary;
+    border-style: solid;
+    border-color: $color-dark;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+    margin-bottom: -2vw;
+    color: $color-light;
+    font-family: 'Luciole', Helvetica, Arial, sans-serif;
+
+    &-email {
+      letter-spacing: 0.15vw;
+      margin-top: 0vw;
+    }
+
+    &-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    &-text {
+      letter-spacing: 0.15vw;
+      line-height: 150%;
+    }
+  }
+}
+
+.header {
+  &-logo {
+    cursor: pointer;
+
+    &-position {
+      display: flex;
+    }
+  }
+
+  &-navbar {
+    background-color: $color-primary;
+    border-style: solid;
+    border-color: $color-dark;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+    margin-top: -2vw;
+
+    &-item {
+      list-style-type: none;
+      display: inline;
+      justify-content: space-around;
+      color: $color-light;
+      font-family: 'Fredoka', Helvetica, sans-serif;
+      text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+      font-weight: 500;
+      letter-spacing: 0.15vw;
+      cursor: pointer;
+    }
+
+    &-list {
+      margin: 0.5vw 0vw;
+      padding: 0vw;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &-top {
+    background-color: $color-light;
+    border-style: solid;
+    border-color: $color-dark;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+    z-index: 2;
+    position: relative;
+  }
+}
+
+.index {
+  &-subtitles {
+    font-family: 'Fredoka', Helvetica, sans-serif;
+    color: $color-primary;
+    font-weight: 500;
+    letter-spacing: 0.2vw;
+  }
+
+  &-titles {
+    font-family: 'Fredoka', Helvetica, sans-serif;
+    color: $color-primary;
+    text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4), 0px -2px 1px rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+    letter-spacing: 0.2vw;
+  }
+}
+
+.project {
+  &-text {
+    margin: 0vw 3vw 1.5vw;
+    letter-spacing: 0.15vw;
+    color: $color-dark;
+    font-family: 'Luciole', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 150%;
+  }
+}

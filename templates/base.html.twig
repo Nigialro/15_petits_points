@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+		<meta name="description" content="Site officiel du projet d'auto-édition &quot;Le monde, c'est quinze petits points&quot;. L'autrice y documente son processus éditorial. Cette histoire est une nouvelle traitant de la cécité à travers le quotidien de deux adolescents.">
+		<title>
+			{% block title %}Le monde, c'est quinze petits points
+			{% endblock %}
+		</title>
+		<link rel="icon" href="{{ asset('images/favicon_15_petits_points.svg') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+					{{ encore_entry_link_tags('app') }}
+				{% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+					{{ encore_entry_script_tags('app') }}
+				{% endblock %}
+	</head>
+
+<!------------------------------ Background style ------------------------------>
+
+	<style>
+		body {
+			background-image: url("{{ asset('images/background_15_petits_points.jpg') }}");
+			background-position: center;
+			background-size: cover;
+			background-attachment: fixed;
+		}
+	</style>
+
+<!------------------------------ HEADER ------------------------------>
+
+	<body>
+        <header class="header-zone">
+					<div class="header-top">
+						<a class="header-logo-position" href="{{ path('app_index') }}">
+							<img class="header-logo" src="{{ asset('images/logo_15_petits_points.svg') }}" alt="Logo du projet : monde écrit en braille">
+						</a>
+						<a href="{{ path('app_index') }}">
+							<h1><span class="size-up">Le monde</span>, c'est quinze petits points</h1>
+						</a>
+					</div>
+        </header>
+<!------------------------------ BODY ------------------------------>
+
+		{% block body %}{% endblock %}
+
+<!------------------------------ FOOTER ------------------------------>
+
+        <footer class="footer-zone">
+					<div class="footer-who">
+						<div class="footer-who-top">
+							<h2 class="footer-titles" id="who">Qui suis-je ?</h2>
+							<p class="footer-who-text">Je m’appelle Marilou Zaiser et je suis étudiante en métiers du livre franco-allemands. Grande amatrice d’«&nbspIl était une fois&nbsp» depuis mon plus jeune âge, je souhaite aujourd’hui en faire mon métier en devenant éditrice. Également grande rêveuse, j’imagine des histoires pour comprendre le monde et pour parler de ceux dont le destin me touche. C’est alors avec le désir que tout le monde puisse partager ma passion de la lecture, même ceux qui ne voient ni la page blanche, ni l’encre noire, que je me suis lancée dans l’aventure de ce projet. J’espère qu’il vous plaira…</p>
+						</div>
+						<div class="footer-who-bottom">
+							<h2 class="footer-titles">Si vous avez des questions...</h2>
+							<p class="footer-who-email">contact@15-petits-points.fr</p>
+						</div>
+					</div>
+					<div class="footer-bottom">
+						<a href="{{ path('app_legal') }}">
+							<img class="footer-logo" src="{{ asset('images/logo_legal.svg') }}" alt="Lien vers les mentions légales">
+						</a>
+						<a href="https://www.instagram.com/15.petitspoints?igsh=MWRucTB2b2pneXBheA==" target="_blank">
+							<img class="footer-logo" src="{{ asset('images/logo_instagram.svg') }}" alt="Lien vers le compte Instagram">
+						</a>
+					</div>
+        </footer>
+	</body>
+</html>
