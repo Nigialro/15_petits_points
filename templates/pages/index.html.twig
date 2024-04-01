@@ -59,13 +59,13 @@
         <p class="diary-screen-date">{{ article.datePublication|frenchDate }}</p>
         <div class="diary-screen-pictures">
           {% if article.firstImageId is not null %}
-            <img class="diary-screen-picture-1" src="{{ article.firstImageId.getUrl() }}" alt="{{ article.firstImageId.getDescription() }}">
+            <img class="diary-screen-picture" src="{{ article.firstImageId.getUrl() }}" alt="{{ article.firstImageId.getDescription() }}">
           {% endif %}
           {% if article.secondImageId is not null %}
-            <img class="diary-screen-picture-2" src="{{ article.secondImageId.getUrl() }}" alt="{{ article.secondImageId.getDescription() }}">
+            <img class="diary-screen-picture" src="{{ article.secondImageId.getUrl() }}" alt="{{ article.secondImageId.getDescription() }}">
           {% endif %}
           {% if article.thirdImageId is not null %}
-            <img class="diary-screen-picture-3" src="{{ article.thirdImageId.getUrl() }}" alt="{{ article.thirdImageId.getDescription() }}">
+            <img class="diary-screen-picture" src="{{ article.thirdImageId.getUrl() }}" alt="{{ article.thirdImageId.getDescription() }}">
           {% endif %}
         </div>
       </div>
@@ -107,11 +107,7 @@
 
 <!------------------------------ Show more articles ------------------------------>
 
-  {% if articles|length >= 5 %}
-    <div class="diary-more-zone">
-      <button class="diary-more" data-articles-visible="4">Voir plus d'articles</button>
-    </div>
-  {% endif %}
+  <div class="diary-more-zone"></div>
 </div>
 
 {% endblock %}

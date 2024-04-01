@@ -12,16 +12,16 @@ import './styles/app.scss';
 //////////////////////////////////////// NAVBAR ////////////////////////////////////////
 
 if (window.location.pathname == '/') {
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const navbarLinks = document.querySelectorAll('.header-navbar-item a');
-  
+
     navbarLinks.forEach(link => {
-      link.addEventListener('click', function(event) {
+      link.addEventListener('click', function (event) {
         event.preventDefault();
-  
+
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-  
+
         if (targetElement) {
           targetElement.scrollIntoView({ behavior: 'smooth' });
         }
@@ -81,38 +81,101 @@ if (window.location.pathname == '/') {
     });
   });
 
-  /* SHOW MORE ARTICLES */
-  // Event manager on showMore click
+  /* IMAGES VIEW */
   document.addEventListener('DOMContentLoaded', function () {
-    var showMoreButton = document.querySelector('.diary-more');
-    var articlesVisible = parseInt(showMoreButton.dataset.articlesVisible);
+    const pictures = document.querySelectorAll('.diary-screen-picture');
 
-    showMoreButton.addEventListener('click', function () {
-      var articles = document.querySelectorAll('.diary-mini:not(.diary-mini-visible)');
-      var numToShow = Math.min(4, articles.length);
+    pictures.forEach(picture => {
+      picture.addEventListener('click', function () {
+        // Overlay
+        const overlay = document.createElement('div');
+        overlay.classList.add('overlay');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+        overlay.style.zIndex = '3';
+        overlay.style.display = 'flex';
+        overlay.style.justifyContent = 'center';
+        overlay.style.alignItems = 'center';
 
-      for (var i = 0; i < numToShow; i++) {
-        articles[i].classList.add('diary-mini-visible');
+        // Image
+        const clickedImage = picture.cloneNode(true);
+        clickedImage.classList.remove('diary-screen-picture');
+        clickedImage.classList.add('overlay-image');
+        clickedImage.style.maxWidth = '90%';
+        clickedImage.style.maxHeight = '90%';
+        clickedImage.style.objectFit = 'contain';
 
-        if (articles.length <= 4) {
-          showMoreButton.classList.add('inactive');
+        // Click listener
+        overlay.addEventListener('click', function () {
+          document.body.removeChild(overlay);
+          window.removeEventListener('scroll', scrollHandler);
+        });
+
+        // Add in doc
+        overlay.appendChild(clickedImage);
+        document.body.appendChild(overlay);
+
+        // Scroll listener
+        window.addEventListener('scroll', scrollHandler);
+
+        // Scrolling function
+        function scrollHandler() {
+          if (document.body.contains(overlay)) {
+            document.body.removeChild(overlay);
+            window.removeEventListener('scroll', scrollHandler);
+          }
         }
-      }
-
-      articlesVisible += numToShow;
-
-      if (articles.length === 0) {
-        showMoreButton.classList.add('inactive');
-      }
+      });
     });
   });
 
+  /* SHOW MORE ARTICLES */
+  // Event manager on showMore click
+  document.addEventListener('DOMContentLoaded', function () {
+    var diaryMoreZone = document.querySelector('.diary-more-zone');
+    var diaryList = document.querySelector('.diary-list');
+
+    // Button creation
+    function createShowMoreButton() {
+      if (diaryList.children.length > 4) {
+        var showMoreButton = document.querySelector('.diary-more');
+        if (!showMoreButton) {
+          showMoreButton = document.createElement('button');
+          showMoreButton.classList.add('diary-more');
+          showMoreButton.dataset.articlesVisible = '4';
+          showMoreButton.textContent = 'Voir plus d\'articles';
+          diaryMoreZone.appendChild(showMoreButton);
+        }
+        // Button click listener
+        showMoreButton.addEventListener('click', function () {
+          var articles = document.querySelectorAll('.diary-mini:not(.diary-mini-visible)');
+          var numToShow = Math.min(4, articles.length);
+
+          for (var i = 0; i < numToShow; i++) {
+            articles[i].classList.add('diary-mini-visible');
+          }
+
+          if (document.querySelectorAll('.diary-mini:not(.diary-mini-visible)').length === 0) {
+            showMoreButton.classList.add('inactive');
+          }
+        });
+      }
+    }
+
+    // Function on page loading
+    createShowMoreButton();
+  });
+
   /* READ MORE */
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const readMoreButtons = document.querySelectorAll('.diary-read-more');
-    
+
     readMoreButtons.forEach(button => {
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function () {
         const text = this.dataset.text;
         const parent = this.parentElement;
         parent.innerHTML = text;
